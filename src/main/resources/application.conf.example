@@ -1,0 +1,5 @@
+hdfs {
+  location    = "hdfs://YOUR-HDFS-ENDPOINT:PORT/YOUR/PATH/loglines.parquet",
+  file_format = "parquet",
+  output_type = "append"
+}
