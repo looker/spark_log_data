@@ -93,6 +93,8 @@ create external table logdata.event (
     , user_meta_info string)
 stored as parquet
 location 'hdfs://YOUR-HDFS-ENDPOINT:PORT/YOUR/PATH/loglines.parquet';
+
+msck repair table logdata.event;           /* recover partitions */
 ```
 
 ### Thrift Server and Beeline
