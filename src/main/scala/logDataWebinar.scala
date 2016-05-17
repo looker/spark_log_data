@@ -54,10 +54,13 @@ object logDataWebinar {
     // traverse DStream and extract message body from avro-serialized event
     val mapStream = stream.map(event => new String(event.event.getBody().array(), "UTF-8"))
 
+    // fire up instance of LogParser
+    val parser = new LogParser()
+
     // traverse each rdd in mapStream, apply extractValues against raw log line, write to hdfs as parquet
     mapStream.foreachRDD{
       rdd => rdd.map{
-        line => LogParser.extractValues(line).get
+        line => parser.extractValues(line).get
       }.toDF().coalesce(1).write.format(file_format).mode(output_type).save(location)
     }
 
