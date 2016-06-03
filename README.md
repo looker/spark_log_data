@@ -2,6 +2,7 @@
 
 ## Overview
 This is a sample Spark Streaming application written in Scala, the purpose of which is to take a stream of logs from Flume, parse the raw logs, create a Spark dataframe, and write the data to Parquet in HDFS.
+![image](https://cloud.githubusercontent.com/assets/2467394/15783257/4f374d2c-2962-11e6-95b1-01edd47ed7b6.png)
 
 ## Walkthrough
 The following walkthrough is meant to get the user up and running with an example in localmode; however, there are a few minor changes—particularly with the Flume set up—that allows this to run over a network and on an entire Spark cluster.
